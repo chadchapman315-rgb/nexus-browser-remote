@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: nexus-remote-browser
+    runtime: docker
+    plan: standard
+    dockerfilePath: ./Dockerfile
+    autoDeployTrigger: commit
+    healthCheckPath: /health
+    envVars:
+      - key: MAX_SESSIONS
+        value: '2'
+      - key: IDLE_SECONDS
+        value: '900'

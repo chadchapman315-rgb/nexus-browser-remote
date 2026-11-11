@@ -1,0 +1,50 @@
+NEXUS Browser V10: REMOTE CHROMIUM
+==================================
+
+WHAT THIS IS
+- A new browser engine, not the earlier Wikipedia Reader.
+- A real Chromium browser runs on the hosting server.
+- NEXUS streams screenshots and sends clicks, typing, scrolling, tabs, Back, and Refresh.
+- When hosted, Chromebook visitors open a single link with the purple NEXUS toolbar.
+- Google searches appear inside the remote Chromium screen, not in a separate Chrome tab.
+
+IMPORTANT BEFORE YOU DEPLOY
+- The old reader URL (nexus-browser-reader.onrender.com) is NOT a remote Chromium server.
+- You need to deploy this V10 package as a NEW Render Docker web service.
+- The included Render Blueprint selects a STANDARD plan, which is paid and uses more memory
+  than the free reader backend. Check Render's current pricing before approving any charges.
+- The service name is nexus-remote-browser. Render may assign another URL if that name is taken.
+- For direct local-file access, index.html currently points to
+  wss://nexus-remote-browser.onrender.com/ws.
+  If Render assigns a different hostname, edit that one address in index.html.
+- Using the deployed website link is preferable and needs no editing.
+
+GITHUB + RENDER STEPS (BEGINNER FRIENDLY)
+1. Extract NEXUS_Remote_Browser_V10.zip.
+2. In GitHub create a NEW repository named nexus-browser-remote.
+3. Upload the individual extracted files (NOT the ZIP). Commit changes.
+4. At Render, create a new Blueprint tied to this NEW repository.
+5. Set Blueprint Path to render.yaml.
+6. Review the service plan and any costs BEFORE choosing Apply.
+7. Wait for the service to become Live. Open its new https://...onrender.com link.
+8. Try a search such as NASA, or visit example.com.
+
+DO NOT REPLACE YOUR OLD READER BACKEND YET.
+
+WHAT TO EXPECT
+- Some sites block automation, show challenges, or demand login. Video, audio, file uploads,
+  downloads, special keyboard shortcuts, and copy/paste may not work fully.
+- This is a proof-of-concept, not a secure general-purpose browser for private accounts.
+- Never type passwords, banking, credit card, or personal information into shared demo sessions.
+- Visitor sessions are ephemeral (closed on disconnect), limited to two simultaneously,
+  with an inactivity timeout. Web content is loaded from the server's network.
+- This app does not bypass institutional or school network rules.
+- This code has been syntax checked and local backend logic tested where possible;
+  external hosting and full browser workflows must still be tested after deployment.
+
+SAFETY / OPERATIONS
+- Do not make an unlimited public remote browsing service without authentication,
+  proper network egress controls, abuse prevention, origin restrictions, and monitoring.
+- The app blocks obvious private and reserved addresses on requests. DNS rebinding
+  and other network boundary concerns still require infrastructure-level restrictions.
+- Search and browsing work only while the hosting service is online.
